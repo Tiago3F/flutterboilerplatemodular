@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,17 +16,25 @@ class MyHomePage extends HookConsumerWidget {
     // final int count = ref.watch(countStateProvider);
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter Boilerplate")
-        ),
+        appBar: AppBar(title: const Text("Flutter Boilerplate")),
         body:
             // Center(child: Text('$count')),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: (() {
+                  Modular.to.navigate('/products/');
+                }),
+                child: const Text("Entrar")),
             Center(
-          // Consumer é um widget que permite a leitura de provedores.
-          child: Consumer(builder: (context, ref, _) {
-            final count = ref.watch(countStateProvider);
-            return Text('$count');
-          }),
+              // Consumer é um widget que permite a leitura de provedores.
+              child: Consumer(builder: (context, ref, _) {
+                final count = ref.watch(countStateProvider);
+                return Text('$count');
+              }),
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
