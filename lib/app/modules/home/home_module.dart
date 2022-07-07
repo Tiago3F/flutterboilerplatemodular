@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'controllers/home_store.dart';
 
 import 'views/home_page.dart';
 
